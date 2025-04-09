@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "ChessBet",
     images: [
       {
-        url: "https://images.pexels.com/photos/957312/chess-checkmated-chess-pieces-black-white-957312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", // Public URL to your image
+        url: "https://cdn.dribbble.com/userupload/37126186/file/original-f9a68d4fa40f566e0cd653dd5b3d4f85.jpg?resize=752x&vertical=center", // Public URL to your image
         width: 1200,
         height: 630,
         alt: "ChessBet - Play. Wager. Win.",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ChessBet | Play. Wager. Win.",
     description: "The first peer-to-peer chess betting platform with real-time wagering and cheat detection.",
-    images: ["https://images.pexels.com/photos/957312/chess-checkmated-chess-pieces-black-white-957312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
+    images: ["https://cdn.dribbble.com/userupload/37126186/file/original-f9a68d4fa40f566e0cd653dd5b3d4f85.jpg?resize=752x&vertical=center"],
   },
 };
 
