@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "ChessBet",
     images: [
       {
-        url: "https://cdn.dribbble.com/userupload/37126186/file/original-f9a68d4fa40f566e0cd653dd5b3d4f85.jpg?resize=752x&vertical=center", // Public URL to your image
+        url: "https://cdn.dribbble.com/userupload/7749073/file/original-3c40132307d6fa03048eeb985cb5b8af.png?resize=752x&vertical=center", // Public URL to your image
         width: 1200,
         height: 630,
         alt: "ChessBet - Play. Wager. Win.",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ChessBet | Play. Wager. Win.",
     description: "The first peer-to-peer chess betting platform with real-time wagering and cheat detection.",
-    images: ["https://cdn.dribbble.com/userupload/37126186/file/original-f9a68d4fa40f566e0cd653dd5b3d4f85.jpg?resize=752x&vertical=center"],
+    images: ["https://cdn.dribbble.com/userupload/7749073/file/original-3c40132307d6fa03048eeb985cb5b8af.png?resize=752x&vertical=center"],
   },
 };
 
