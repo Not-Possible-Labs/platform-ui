@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { config} from "dotenv";
 import { ThemeProvider } from "@/components/theme-provider"
 
 config({ path: ".env.local" });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const hanken = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "ChessBet",
     images: [
       {
-        url: "https://cdn.dribbble.com/userupload/7749073/file/original-3c40132307d6fa03048eeb985cb5b8af.png?resize=752x&vertical=center", // Public URL to your image
+        url: "https://cdn.dribbble.com/userupload/14969723/file/original-38f732c01f091de6f22740c7675c5e55.png?resize=752x&vertical=center", // Public URL to your image
         width: 1200,
         height: 630,
         alt: "ChessBet - Play. Wager. Win.",
@@ -38,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ChessBet | Play. Wager. Win.",
     description: "The first peer-to-peer chess betting platform with real-time wagering and cheat detection.",
-    images: ["https://cdn.dribbble.com/userupload/7749073/file/original-3c40132307d6fa03048eeb985cb5b8af.png?resize=752x&vertical=center"],
+    images: ["https://cdn.dribbble.com/userupload/14969723/file/original-38f732c01f091de6f22740c7675c5e55.png?resize=752x&vertical=center"],
   },
 };
 
@@ -50,9 +46,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={hanken.variable} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${hanken.variable} font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"

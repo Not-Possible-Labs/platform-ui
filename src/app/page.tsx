@@ -15,6 +15,7 @@ import { useState } from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Footer } from "@/components/ui/footer";
 
 const navItems = [
   { name: "Play", link: "/" },
@@ -44,7 +45,7 @@ export default function Home() {
               <NavbarButton href="/auth/sign-up">Get Started</NavbarButton>
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="rounded-md p-2 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800 transition-colors"
+                className="text-lg md:text-xl lg:text-2xl text-gray-800 dark:text-gray-200 max-w-5xl mx-auto"
               >
                 {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </button>
@@ -77,8 +78,22 @@ export default function Home() {
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
+      <div className="mt-12 md:mt-24 text-center">
+        <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))] mb-4">
+          <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-black dark:from-gray-400 via-gray-900 dark:via-gray-300 to-gray-700 dark:to-gray-200 [text-shadow:0_0_rgba(0,0,0,0.1)]">
+            <span className="text-4xl md:text-6xl lg:text-8xl font-bold">ChessBet</span>
+          </div>
+          <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-black dark:from-gray-400 via-gray-900 dark:via-gray-300 to-gray-700 dark:to-gray-200 py-4">
+            <span className="text-4xl md:text-6xl lg:text-8xl font-bold">ChessBet</span>
+          </div>
+        </div>
+        <p className="text-lg md:text-xl lg:text-2xl text-gray-800 dark:text-gray-200 max-w-5xl mx-auto mb-12">
+          The first peer-to-peer chess betting platform built for real competition.<br />
+          Play real-time matches. Wager with real money. Powered by advanced cheat detection.
+        </p>
+      </div>
 
-      <main className="container mx-auto px-4 pt-24">
+      <main className="container mx-auto px-4 pt-24 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Large card spanning 2 columns */}
           <Card className="md:col-span-2 h-[300px] hover:shadow-lg transition-shadow">
@@ -180,6 +195,7 @@ export default function Home() {
         </div>
       </main>
 
+      <Footer />
     </div>
   );
 }
