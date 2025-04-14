@@ -10,8 +10,6 @@ import {
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import Image from "next/image";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -48,6 +46,7 @@ interface MobileNavMenuProps {
   children: React.ReactNode;
   className?: string;
   isOpen: boolean;
+  onClose: () => void;
 }
 
 export const Navbar = ({ children, className }: NavbarProps) => {
@@ -57,7 +56,6 @@ export const Navbar = ({ children, className }: NavbarProps) => {
     offset: ["start start", "end start"],
   });
   const [visible, setVisible] = useState<boolean>(false);
-  const { theme, setTheme } = useTheme();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 100) {
@@ -71,32 +69,16 @@ export const Navbar = ({ children, className }: NavbarProps) => {
     <motion.div
       ref={ref}
       // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
-      className={cn("sticky inset-x-0 top-0 z-40 w-full", className)}
+      className={cn("sticky inset-x-0 top-20 z-40 w-full", className)}
     >
-      <div className="flex items-center justify-between px-4 py-2 md:px-6 md:py-3">
-        <div className="flex items-center space-x-2">
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-lg hover:bg-muted/50 dark:hover:bg-muted/50 transition-colors"
-          >
-            {theme === "dark" ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </button>
-        </div>
-        <div className="flex items-center justify-center flex-1">
-          {React.Children.map(children, (child) =>
-            React.isValidElement(child)
-              ? React.cloneElement(
-                  child as React.ReactElement<{ visible?: boolean }>,
-                  { visible },
-                )
-              : child,
-          )}
-        </div>
-      </div>
+      {React.Children.map(children, (child) =>
+        React.isValidElement(child)
+          ? React.cloneElement(
+              child as React.ReactElement<{ visible?: boolean }>,
+              { visible },
+            )
+          : child,
+      )}
     </motion.div>
   );
 };
@@ -213,6 +195,7 @@ export const MobileNavMenu = ({
   children,
   className,
   isOpen,
+  onClose,
 }: MobileNavMenuProps) => {
   return (
     <AnimatePresence>

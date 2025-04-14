@@ -12,6 +12,8 @@ import {
   NavbarButton,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
+import { useTheme } from "next-themes";
+import { Sun, Moon } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 const navItems = [
@@ -23,20 +25,31 @@ const navItems = [
 
 export default function Home() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="min-h-screen">
       <Navbar>
-        <NavBody>
+        <NavBody className="hidden md:flex">
           <NavbarLogo />
-          <NavItems items={navItems} />
-          <div className="z-20 flex items-center gap-4">
-            <NavbarButton href="/auth/login" variant="secondary">Sign in</NavbarButton>
-            <NavbarButton href="/auth/sign-up">Get Started</NavbarButton>
+          <div className="flex items-center justify-between w-full gap-4">
+            <div className="flex items-center space-x-6">
+              <NavItems items={navItems} />
+            </div>
+            <div className="flex items-center gap-4">
+              <NavbarButton href="/auth/login" variant="secondary">Sign in</NavbarButton>
+              <NavbarButton href="/auth/sign-up">Get Started</NavbarButton>
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="rounded-md bg-white px-2.5 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-neutral-950 dark:text-white dark:ring-neutral-800 dark:hover:bg-neutral-900"
+              >
+                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </NavBody>
 
-        <MobileNav>
+        <MobileNav className="md:hidden">
           <MobileNavHeader>
             <NavbarLogo />
             <MobileNavToggle
@@ -44,20 +57,19 @@ export default function Home() {
               onClick={() => setMobileNavOpen(!mobileNavOpen)}
             />
           </MobileNavHeader>
-          <MobileNavMenu isOpen={mobileNavOpen}>
-            <div className="flex flex-col gap-2">
-              {navItems.map((item, idx) => (
-                <a
-                  key={idx}
-                  href={item.link}
-                  className="rounded-lg p-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800"
+          <MobileNavMenu isOpen={mobileNavOpen} onClose={() => setMobileNavOpen(false)}>
+            <div className="flex flex-col space-y-4 w-full">
+              <NavItems items={navItems} />
+              <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200 dark:border-neutral-800">
+                <NavbarButton href="/auth/login" variant="secondary" className="w-full justify-center">Sign in</NavbarButton>
+                <NavbarButton href="/auth/sign-up" className="w-full justify-center">Get Started</NavbarButton>
+                <button
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="w-full flex items-center justify-center rounded-md bg-white px-2.5 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-neutral-950 dark:text-white dark:ring-neutral-800 dark:hover:bg-neutral-900"
                 >
-                  {item.name}
-                </a>
-              ))}
-              <hr className="my-4" />
-              <NavbarButton href="/auth/login" variant="secondary" className="w-full">Sign in</NavbarButton>
-              <NavbarButton href="/auth/sign-up" className="w-full">Get Started</NavbarButton>
+                  {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                </button>
+              </div>
             </div>
           </MobileNavMenu>
         </MobileNav>
