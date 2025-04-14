@@ -32,11 +32,11 @@ export default function Home() {
       <Navbar>
         <NavBody className="hidden md:flex">
           <NavbarLogo />
-          <div className="flex items-center justify-between w-full gap-4">
-            <div className="flex items-center space-x-6">
+          <div className="flex items-center justify-between w-full">
+            <div className="flex-shrink-0 overflow-hidden mr-auto">
               <NavItems items={navItems} />
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex-shrink-0 flex items-center gap-4 ml-8">
               <NavbarButton href="/auth/login" variant="secondary">Sign in</NavbarButton>
               <NavbarButton href="/auth/sign-up">Get Started</NavbarButton>
               <button
