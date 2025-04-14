@@ -44,7 +44,7 @@ export default function Home() {
               <NavbarButton href="/auth/sign-up">Get Started</NavbarButton>
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="rounded-md bg-white px-2.5 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-neutral-950 dark:text-white dark:ring-neutral-800 dark:hover:bg-neutral-900"
+                className="rounded-md p-2 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800 transition-colors"
               >
                 {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </button>
@@ -64,7 +64,7 @@ export default function Home() {
             <div className="flex flex-col space-y-4 w-full">
               <NavItems items={navItems} />
               <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200 dark:border-neutral-800">
-                <NavbarButton href="/auth/login" variant="secondary" className="w-full justify-center">Sign in</NavbarButton>
+                <NavbarButton href="/auth/login" className="w-full justify-center">Sign in</NavbarButton>
                 <NavbarButton href="/auth/sign-up" className="w-full justify-center">Get Started</NavbarButton>
                 <button
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
