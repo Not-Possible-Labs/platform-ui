@@ -44,7 +44,7 @@ export default function Home() {
               onClick={() => setMobileNavOpen(!mobileNavOpen)}
             />
           </MobileNavHeader>
-          <MobileNavMenu isOpen={mobileNavOpen} onClose={() => setMobileNavOpen(false)}>
+          <MobileNavMenu isOpen={mobileNavOpen}>
             <div className="flex flex-col gap-2">
               {navItems.map((item, idx) => (
                 <a
