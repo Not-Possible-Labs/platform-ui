@@ -148,7 +148,7 @@ const getIcon = (type: TimelineItem["icon"]) => {
 
 export const NewsTimeline = () => {
   return (
-    <div className="relative flex flex-col space-y-6 px-8 h-full overflow-y-auto">
+    <div className="relative flex flex-col space-y-6 px-8 pt-4 h-full overflow-y-auto">
       {/* Timeline line */}
       <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-neutral-200 dark:bg-neutral-700" />
 
