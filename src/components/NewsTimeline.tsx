@@ -148,28 +148,42 @@ const getIcon = (type: TimelineItem["icon"]) => {
 
 export const NewsTimeline = () => {
   return (
-    <div className="relative flex flex-col space-y-6 px-8 pt-4 h-full overflow-y-auto">
-      {/* Timeline line */}
-      <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-neutral-200 dark:bg-neutral-700" />
+    <div className="relative flex flex-col h-full overflow-y-auto">
+      <div className="relative space-y-6 px-8 pt-4 pb-6">
+        {/* Timeline line */}
+        <div className="absolute left-8 inset-y-0 w-[2px] bg-neutral-200 dark:bg-neutral-700" />
 
-      {mockNews.map((item) => (
-        <div key={item.id} className="flex gap-4 items-start">
-          {/* Icon circle */}
-          <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white dark:bg-neutral-900 shadow-sm ring-1 ring-neutral-200 dark:ring-neutral-700" style={{ marginLeft: '-15px' }}>
-            {getIcon(item.icon)}
+        {mockNews.slice(0, 20).map((item) => (
+          <div key={item.id} className="flex gap-4 items-start">
+            {/* Icon circle */}
+            <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white dark:bg-neutral-900 shadow-sm ring-1 ring-neutral-200 dark:ring-neutral-700" style={{ marginLeft: '-15px' }}>
+              {getIcon(item.icon)}
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 pt-0.5">
+              <div className="text-xs text-neutral-500 dark:text-neutral-400">
+                {item.timestamp}
+              </div>
+              <div className="mt-1 text-sm">
+                {item.content}
+              </div>
+            </div>
           </div>
+        ))}
 
-          {/* Content */}
+        {/* Show All Updates button */}
+        <div className="flex gap-4 items-start">
+          <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white dark:bg-neutral-900 shadow-sm ring-1 ring-neutral-200 dark:ring-neutral-700" style={{ marginLeft: '-15px' }}>
+            <IconCalendarEvent className="h-4 w-4 text-neutral-500" />
+          </div>
           <div className="flex-1 pt-0.5">
-            <div className="text-xs text-neutral-500 dark:text-neutral-400">
-              {item.timestamp}
-            </div>
-            <div className="mt-1 text-sm">
-              {item.content}
-            </div>
+            <button className="text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">
+              Show All Updates
+            </button>
           </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 };
