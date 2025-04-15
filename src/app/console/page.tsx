@@ -16,7 +16,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export default function ConsolePage() {
-  const links = [
+  const mainLinks = [
     {
       label: "Dashboard",
       href: "#",
@@ -31,6 +31,9 @@ export default function ConsolePage() {
         <IconChessKnight className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
+  ];
+
+  const bottomLinks = [
     {
       label: "Profile",
       href: "#",
@@ -66,7 +69,12 @@ export default function ConsolePage() {
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
             {open ? <Logo /> : <LogoIcon />}
             <div className="mt-8 flex flex-col gap-2">
-              {links.map((link, idx) => (
+              {mainLinks.map((link, idx) => (
+                <SidebarLink key={idx} link={link} />
+              ))}
+            </div>
+            <div className="mt-auto mb-4 flex flex-col gap-2">
+              {bottomLinks.map((link, idx) => (
                 <SidebarLink key={idx} link={link} />
               ))}
             </div>
