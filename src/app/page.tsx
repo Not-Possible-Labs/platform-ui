@@ -41,7 +41,7 @@ export default function Home() {
               <NavItems items={navItems} />
             </div>
             <div className="flex-shrink-0 flex items-center gap-4">
-              <NavbarButton href="/auth/login" variant="secondary">Sign in</NavbarButton>
+              <NavbarButton href="/auth/sign-in" variant="secondary">Sign in</NavbarButton>
               <NavbarButton href="/auth/sign-up">Get Started</NavbarButton>
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -65,7 +65,7 @@ export default function Home() {
             <div className="flex flex-col space-y-4 w-full">
               <NavItems items={navItems} />
               <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200 dark:border-neutral-800">
-                <NavbarButton href="/auth/login" className="w-full justify-center">Sign in</NavbarButton>
+                <NavbarButton href="/auth/sign-in" className="w-full justify-center">Sign in</NavbarButton>
                 <NavbarButton href="/auth/sign-up" className="w-full justify-center">Get Started</NavbarButton>
                 <button
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
