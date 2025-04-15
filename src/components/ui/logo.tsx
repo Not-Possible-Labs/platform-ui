@@ -6,10 +6,10 @@ export function Logo() {
   return (
     <div className="flex items-center gap-2">
       <Image
-        src="/logo.png"
+        src="/Logo.png"
         alt="ChessBet Logo"
-        width={32}
-        height={32}
+        width={52}
+        height={52}
         className="dark:invert"
       />
       <span className="text-xl font-bold text-gray-900 dark:text-white">
