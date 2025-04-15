@@ -45,6 +45,10 @@ function VerifyForm({ className, ...props }: React.ComponentProps<"div">) {
                   value={otp}
                   onChange={setOtp}
                   maxLength={6}
+                  autoComplete="off"
+                  autoCapitalize="off"
+                  data-dashlane-label="otp-input"
+                  data-form-type="other"
                 >
                   <InputOTPGroup>
                     <InputOTPSlot index={0} />
