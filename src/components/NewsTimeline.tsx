@@ -149,16 +149,14 @@ const getIcon = (type: TimelineItem["icon"]) => {
 export const NewsTimeline = () => {
   return (
     <div className="relative flex flex-col space-y-6 px-8 pt-4 h-full overflow-y-auto">
-      {/* Timeline line */}
-      <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-neutral-200 dark:bg-neutral-700" />
-
-      {mockNews.map((item) => (
-        <div key={item.id} className="flex gap-4 items-start">
-          {/* Icon circle */}
-          <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white dark:bg-neutral-900 shadow-sm ring-1 ring-neutral-200 dark:ring-neutral-700" style={{ marginLeft: '-15px' }}>
+      {mockNews.map((item, index) => (
+        <div key={index} className="relative flex items-start gap-4">
+          <div className="relative flex h-6 w-6 flex-none items-center justify-center">
             {getIcon(item.icon)}
           </div>
-
+          <div className="absolute left-[46px]">
+            <div className="h-2 w-2 rounded-full bg-neutral-300 ring-4 ring-white dark:bg-neutral-600 dark:ring-neutral-900" />
+          </div>
           {/* Content */}
           <div className="flex-1 pt-0.5">
             <div className="text-xs text-neutral-500 dark:text-neutral-400">

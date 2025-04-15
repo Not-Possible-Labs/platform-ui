@@ -1,5 +1,26 @@
 [
   {
+    "username": "GM_Magnus",
+    "rating": 2847,
+    "time": "3+2",
+    "mode": "Rated",
+    "gameType": "standard"
+  },
+  {
+    "username": "Hikaru_N",
+    "rating": 2789,
+    "time": "1+0",
+    "mode": "Rated",
+    "gameType": "bullet"
+  },
+  {
+    "username": "Alireza_F",
+    "rating": 2762,
+    "time": "5+3",
+    "mode": "Rated",
+    "gameType": "standard"
+  },
+  {
     "username": "Uwong_Jowo",
     "rating": 1620,
     "time": "1+13",
@@ -52,6 +73,69 @@
     "username": "BCLF",
     "rating": 1666,
     "time": "½+8",
+    "mode": "Rated",
+    "gameType": "960"
+  },
+  {
+    "username": "ChessWhiz99",
+    "rating": 2150,
+    "time": "15+10",
+    "mode": "Rated",
+    "gameType": "standard"
+  },
+  {
+    "username": "RapidMaster",
+    "rating": 2345,
+    "time": "10+0",
+    "mode": "Rated",
+    "gameType": "standard"
+  },
+  {
+    "username": "Botez_Fan",
+    "rating": 1850,
+    "time": "3+0",
+    "mode": "Casual",
+    "gameType": "960"
+  },
+  {
+    "username": "KnightRider",
+    "rating": 1999,
+    "time": "5+5",
+    "mode": "Rated",
+    "gameType": "standard"
+  },
+  {
+    "username": "PawnStorm",
+    "rating": "1750?",
+    "time": "2+1",
+    "mode": "Casual",
+    "gameType": "bullet"
+  },
+  {
+    "username": "QueenGambit",
+    "rating": 2050,
+    "time": "20+10",
+    "mode": "Rated",
+    "gameType": "standard"
+  },
+  {
+    "username": "BlitzKing",
+    "rating": 2250,
+    "time": "3+2",
+    "mode": "Rated",
+    "gameType": "standard"
+  },
+  {
+    "username": "EndgamePro",
+    "rating": 2100,
+    "time": "30+0",
+    "mode": "Rated",
+    "gameType": "standard"
+  },
+  {
+    "username": "Chess960Master",
+    "rating": 2400,
+    "time": "10+5",
     "mode": "Rated",
     "gameType": "960"
   },
