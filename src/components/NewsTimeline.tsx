@@ -37,13 +37,13 @@ const mockNews: TimelineItem[] = [
 const getIcon = (type: TimelineItem["icon"]) => {
   switch (type) {
     case "trophy":
-      return <IconTrophy className="h-5 w-5 text-yellow-500" />;
+      return <IconTrophy className="h-4 w-4 text-yellow-500" />;
     case "microphone":
-      return <IconMicrophone className="h-5 w-5 text-blue-500" />;
+      return <IconMicrophone className="h-4 w-4 text-blue-500" />;
     case "gamepad":
-      return <IconDeviceGamepad2 className="h-5 w-5 text-green-500" />;
+      return <IconDeviceGamepad2 className="h-4 w-4 text-green-500" />;
     case "event":
-      return <IconCalendarEvent className="h-5 w-5 text-purple-500" />;
+      return <IconCalendarEvent className="h-4 w-4 text-purple-500" />;
   }
 };
 
@@ -51,17 +51,17 @@ export const NewsTimeline = () => {
   return (
     <div className="relative flex flex-col space-y-6 px-4">
       {/* Timeline line */}
-      <div className="absolute left-[19px] top-3 bottom-3 w-0.5 bg-neutral-200 dark:bg-neutral-700" />
+      <div className="absolute left-[19.5px] top-0 bottom-0 w-0.5 bg-neutral-200 dark:bg-neutral-700" />
 
       {mockNews.map((item) => (
-        <div key={item.id} className="flex gap-4">
+        <div key={item.id} className="flex gap-4 items-start">
           {/* Icon circle */}
-          <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-neutral-900 shadow-sm ring-1 ring-neutral-200 dark:ring-neutral-700">
+          <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white dark:bg-neutral-900 shadow-sm ring-1 ring-neutral-200 dark:ring-neutral-700">
             {getIcon(item.icon)}
           </div>
 
           {/* Content */}
-          <div className="flex-1 pt-1">
+          <div className="flex-1 pt-0.5">
             <div className="text-xs text-neutral-500 dark:text-neutral-400">
               {item.timestamp}
             </div>
