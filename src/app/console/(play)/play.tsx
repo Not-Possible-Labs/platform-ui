@@ -45,7 +45,7 @@ export const Play = () => {
                   Create Game
                 </button>
               </div>
-              <div className="h-[620px] overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-700">
+              <div className="h-[820px] overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-700">
                 <div className="h-full overflow-x-auto overflow-y-auto">
                   <table className="min-w-full divide-y divide-neutral-200 dark:divide-neutral-700">
                     <thead className="bg-neutral-50 dark:bg-neutral-800">
@@ -102,7 +102,7 @@ export const Play = () => {
             {/* Right side - News Timeline */}
             <div className="w-1/2 flex flex-col">
               <div className="h-[52px]"></div>
-              <div className="h-[620px] rounded-lg bg-neutral-100 dark:bg-neutral-800">
+              <div className="h-[820px] rounded-lg bg-neutral-100 dark:bg-neutral-800">
                 <NewsTimeline />
               </div>
             </div>
