@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { IconFlame, IconRun, IconChess, IconChessKnight } from "@tabler/icons-react";
+import { NewsTimeline } from "@/components/NewsTimeline";
 import gamesData from "./data.json";
 
 interface Game {
@@ -97,10 +98,12 @@ export const Play = () => {
             </div>
           </div>
 
-          {/* Right side placeholder */}
+          {/* Right side - News Timeline */}
           <div className="w-1/2">
-            <div className="mt-[52px] rounded-lg bg-neutral-100 dark:bg-neutral-800" style={{ height: 'calc(100% - 52px)' }}>
-              {/* Placeholder for future content */}
+            <div className="mt-[52px] rounded-lg bg-neutral-100 dark:bg-neutral-800 overflow-y-auto" style={{ height: 'calc(100% - 52px)' }}>
+              <div className="py-4">
+                <NewsTimeline />
+              </div>
             </div>
           </div>
         </div>
