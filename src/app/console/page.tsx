@@ -14,8 +14,10 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 export default function ConsolePage() {
+  const router = useRouter();
   const mainLinks = [
     {
       label: "Dashboard",
@@ -54,6 +56,10 @@ export default function ConsolePage() {
       icon: (
         <IconArrowLeft className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
+      onClick: (e: React.MouseEvent) => {
+        e.preventDefault();
+        router.push("/");
+      },
     },
   ];
   const [open, setOpen] = useState(false);
