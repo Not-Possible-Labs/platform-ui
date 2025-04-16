@@ -13,7 +13,7 @@ import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar-15"
+} from "@/components/ui/game-sidebar"
 
 
 

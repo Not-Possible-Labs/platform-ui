@@ -14,7 +14,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
   SidebarSeparator,
-} from "@/components/ui/sidebar-15"
+} from "@/components/ui/game-sidebar"
 
 // This is sample data.
 const data = {
