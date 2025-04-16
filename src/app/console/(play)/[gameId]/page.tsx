@@ -21,6 +21,8 @@ import { useState } from "react";
 
 export default function GamePage({ params }: { params: { gameId: string } }) {
   const [open, setOpen] = useState(false);
+  
+  console.log('GamePage params:', params);
 
   return (
     <SidebarProvider defaultOpen={open} onOpenChange={setOpen}>

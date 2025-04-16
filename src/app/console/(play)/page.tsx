@@ -34,6 +34,7 @@ const validateGame = (game: GameData): game is Game => {
 };
 
 const games: Game[] = (gamesData as GameData[]).filter(validateGame);
+console.log('Game data:', games);
 
 export default function Play() {
   const [sortedGames, setSortedGames] = useState<Game[]>(() => {
@@ -75,7 +76,7 @@ export default function Play() {
                           key={game.gameId} 
                           className="hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
                         >
-                          <Link href={`/console/play/${game.gameId}`} className="contents">
+                          <Link href={`/console/play/${game.gameId}`} prefetch={false} className="contents">
                           <td className="whitespace-nowrap px-4 py-1 text-xs font-medium text-neutral-900 dark:text-white">
                             {game.username}
                           </td>
@@ -114,6 +115,7 @@ export default function Play() {
                           <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
                             <Link 
                               href={`/console/play/${game.gameId}`}
+                              prefetch={false}
                               className="rounded-md bg-neutral-900 px-3 py-1 text-sm font-medium text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
                             >
                               Join
