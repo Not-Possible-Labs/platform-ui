@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { IconFlame, IconRun, IconChess, IconChessKnight } from "@tabler/icons-react";
 import { NewsTimeline } from "@/components/NewsTimeline";
+import { CreateGameDialog } from "@/components/create-game-dialog";
 import gamesData from "./data.json";
 
 interface Game {
@@ -15,7 +16,11 @@ interface Game {
   gameType: "standard" | "960";
 }
 
-const games: Game[] = gamesData as Game[];
+const games: Game[] = gamesData.map(game => ({
+  ...game,
+  mode: game.mode as "Rated" | "Casual",
+  gameType: game.gameType as "standard" | "960"
+}));
 
 export const Play = () => {
   const router = useRouter();
@@ -37,16 +42,11 @@ export const Play = () => {
             {/* Left side - Game board */}
             <div className="flex w-1/2 flex-col gap-4">
               <div className="flex items-center justify-between">
-                <button
-                  className="inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
-                  onClick={() => {}}
-                >
-                  Create Game
-                </button>
+                <CreateGameDialog />
               </div>
               <div className="h-[820px] overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-700">
                 <div className="h-full overflow-x-auto overflow-y-auto">
-                  <table className="min-w-full divide-y divide-neutral-200 dark:divide-neutral-700">
+                  <table className="min-w-full divide-y divide-neutral-200 dark:divide-neutral-700 cursor-pointer">
                     <thead className="bg-neutral-50 dark:bg-neutral-800">
                       <tr>
                         <th scope="col" className="px-4 py-1 text-left text-xs font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-400">Player</th>
@@ -61,27 +61,26 @@ export const Play = () => {
                       {sortedGames.map((game) => (
                         <tr 
                           key={game.gameId} 
-                          className="hover:bg-neutral-50 dark:hover:bg-neutral-800 cursor-pointer"
-                          onClick={() => router.push(`/console/%28play%29/${game.gameId}`)}
+                          className="hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
+                          onClick={() => router.push(`/console/${game.gameId}`)}
                         >
-                          <td className="whitespace-nowrap px-4 py-1 text-xs font-medium text-neutral-900 dark:text-white">{game.username}</td>
+                          <td className="whitespace-nowrap px-4 py-1 text-xs font-medium text-neutral-900 dark:text-white">
+                            {game.username}
+                          </td>
                           <td className="whitespace-nowrap px-4 py-1 text-xs text-neutral-500 dark:text-neutral-400">
                             {typeof game.rating === "string" ? game.rating : `${game.rating}`}
                           </td>
-                          <td className="whitespace-nowrap px-4 py-1 text-xs text-neutral-500 dark:text-neutral-400">{game.time}</td>
+                          <td className="whitespace-nowrap px-4 py-1 text-xs text-neutral-500 dark:text-neutral-400">
+                            {game.time}
+                          </td>
                           <td className="whitespace-nowrap px-4 py-1 text-xs text-neutral-500 dark:text-neutral-400">
                             <span className="inline-flex items-center gap-0.5">
                               {game.mode === "Casual" ? (
-                                <>
-                                  <IconRun className="h-3 w-3" />
-                                  Casual
-                                </>
+                                <IconFlame className="h-3 w-3 text-orange-500" />
                               ) : (
-                                <>
-                                  <IconFlame className="h-3 w-3" />
-                                  Ranked
-                                </>
+                                <IconRun className="h-3 w-3 text-green-500" />
                               )}
+                              {game.mode}
                             </span>
                           </td>
                           <td className="whitespace-nowrap px-4 py-1 text-xs text-neutral-500 dark:text-neutral-400">
@@ -99,7 +98,7 @@ export const Play = () => {
                               className="rounded-md bg-neutral-900 px-3 py-1 text-sm font-medium text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
                               onClick={(e) => {
                                 e.stopPropagation();
-                                router.push(`/console/%28play%29/${game.gameId}`);
+                                router.push(`/console/${game.gameId}`);
                               }}
                             >
                               Join
