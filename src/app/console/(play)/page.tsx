@@ -35,7 +35,7 @@ const validateGame = (game: GameData): game is Game => {
 
 const games: Game[] = (gamesData as GameData[]).filter(validateGame);
 
-export const Play = () => {
+export default function Play() {
   const [sortedGames, setSortedGames] = useState<Game[]>(() => {
     return [...games].sort((a, b) => {
       const ratingA = typeof a.rating === "string" ? parseInt(a.rating) : a.rating;
