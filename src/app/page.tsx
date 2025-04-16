@@ -43,12 +43,12 @@ export default function Home() {
             <div className="flex-shrink-0 flex items-center gap-4">
               <NavbarButton href="/auth/sign-in" variant="secondary">Sign in</NavbarButton>
               <NavbarButton href="/auth/sign-up">Get Started</NavbarButton>
-              <button
+              <NavbarButton
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="text-lg md:text-xl lg:text-2xl text-gray-800 dark:text-gray-200 max-w-5xl mx-auto"
+                variant="secondary"
               >
                 {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-              </button>
+              </NavbarButton>
             </div>
           </div>
         </NavBody>
@@ -67,12 +67,12 @@ export default function Home() {
               <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200 dark:border-neutral-800">
                 <NavbarButton href="/auth/sign-in" className="w-full justify-center">Sign in</NavbarButton>
                 <NavbarButton href="/auth/sign-up" className="w-full justify-center">Get Started</NavbarButton>
-                <button
+                <NavbarButton
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="w-full flex items-center justify-center rounded-md bg-white px-2.5 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-neutral-950 dark:text-white dark:ring-neutral-800 dark:hover:bg-neutral-900"
+                  className="w-full justify-center"
                 >
                   {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-                </button>
+                </NavbarButton>
               </div>
             </div>
           </MobileNavMenu>
