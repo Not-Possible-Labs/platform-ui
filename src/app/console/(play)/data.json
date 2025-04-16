@@ -1,5 +1,6 @@
 [
   {
+    "gameId": "g1",
     "username": "Uwong_Jowo",
     "rating": 1620,
     "time": "1+13",
@@ -7,6 +8,7 @@
     "gameType": "standard"
   },
   {
+    "gameId": "g2",
     "username": "criby85",
     "rating": "1500?",
     "time": "¼+5",
@@ -14,6 +16,7 @@
     "gameType": "standard"
   },
   {
+    "gameId": "g3",
     "username": "amine445",
     "rating": "1500?",
     "time": "5+0",
@@ -21,6 +24,7 @@
     "gameType": "standard"
   },
   {
+    "gameId": "g4",
     "username": "aristoux",
     "rating": 1498,
     "time": "25+10",
@@ -28,6 +32,7 @@
     "gameType": "standard"
   },
   {
+    "gameId": "g5",
     "username": "MIGUELCAD",
     "rating": 1475,
     "time": "8+1",
@@ -35,6 +40,7 @@
     "gameType": "standard"
   },
   {
+    "gameId": "g6",
     "username": "fad9000",
     "rating": 1451,
     "time": "¾+1",
@@ -42,6 +48,7 @@
     "gameType": "standard"
   },
   {
+    "gameId": "g7",
     "username": "HS09",
     "rating": "1163?",
     "time": "1+4",

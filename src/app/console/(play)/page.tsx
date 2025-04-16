@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { IconFlame, IconRun, IconChess, IconChessKnight } from "@tabler/icons-react";
 import { NewsTimeline } from "@/components/NewsTimeline";
 import gamesData from "./data.json";
 
 interface Game {
+  gameId: string;
   username: string;
   rating: string | number;
   time: string;
@@ -13,13 +15,10 @@ interface Game {
   gameType: "standard" | "960";
 }
 
-const games: Game[] = gamesData.map(game => ({
-  ...game,
-  mode: game.mode as "Rated" | "Casual",
-  gameType: game.gameType as "standard" | "960"
-}));
+const games: Game[] = gamesData as Game[];
 
 export const Play = () => {
+  const router = useRouter();
   const [sortedGames, setSortedGames] = useState<Game[]>(() => {
     return [...games].sort((a, b) => {
       const ratingA = typeof a.rating === "string" ? parseInt(a.rating) : a.rating;
@@ -59,8 +58,12 @@ export const Play = () => {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-neutral-200 bg-white dark:divide-neutral-700 dark:bg-neutral-900">
-                      {sortedGames.map((game, idx) => (
-                        <tr key={idx} className="hover:bg-neutral-50 dark:hover:bg-neutral-800">
+                      {sortedGames.map((game) => (
+                        <tr 
+                          key={game.gameId} 
+                          className="hover:bg-neutral-50 dark:hover:bg-neutral-800 cursor-pointer"
+                          onClick={() => router.push(`/console/%28play%29/${game.gameId}`)}
+                        >
                           <td className="whitespace-nowrap px-4 py-1 text-xs font-medium text-neutral-900 dark:text-white">{game.username}</td>
                           <td className="whitespace-nowrap px-4 py-1 text-xs text-neutral-500 dark:text-neutral-400">
                             {typeof game.rating === "string" ? game.rating : `${game.rating}`}
@@ -69,11 +72,16 @@ export const Play = () => {
                           <td className="whitespace-nowrap px-4 py-1 text-xs text-neutral-500 dark:text-neutral-400">
                             <span className="inline-flex items-center gap-0.5">
                               {game.mode === "Casual" ? (
-                                <IconFlame className="h-3 w-3 text-orange-500" />
+                                <>
+                                  <IconRun className="h-3 w-3" />
+                                  Casual
+                                </>
                               ) : (
-                                <IconRun className="h-3 w-3 text-green-500" />
+                                <>
+                                  <IconFlame className="h-3 w-3" />
+                                  Ranked
+                                </>
                               )}
-                              {game.mode}
                             </span>
                           </td>
                           <td className="whitespace-nowrap px-4 py-1 text-xs text-neutral-500 dark:text-neutral-400">
@@ -87,7 +95,13 @@ export const Play = () => {
                             </span>
                           </td>
                           <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                            <button className="rounded-md bg-neutral-900 px-3 py-1 text-sm font-medium text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100">
+                            <button 
+                              className="rounded-md bg-neutral-900 px-3 py-1 text-sm font-medium text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                router.push(`/console/%28play%29/${game.gameId}`);
+                              }}
+                            >
                               Join
                             </button>
                           </td>
