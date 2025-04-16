@@ -1,3 +1,5 @@
+"use client";
+
 import { SidebarLeft } from "@/components/sidebar-left"
 import { SidebarRight } from "@/components/sidebar-right"
 import {
@@ -11,12 +13,23 @@ import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar-15"
 
-export default function GamePage() {
+
+
+import { useState } from "react";
+
+export default function GamePage({ params }: { params: { gameId: string } }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <SidebarProvider>
-      <SidebarLeft />
+    <SidebarProvider defaultOpen={open} onOpenChange={setOpen}>
+      <SidebarLeft>
+        <div className="flex flex-col gap-4">
+          <div>Game Controls</div>
+          <div>Game Settings</div>
+        </div>
+      </SidebarLeft>
       <SidebarInset>
         <header className="sticky top-0 flex h-14 shrink-0 items-center gap-2 bg-background">
           <div className="flex flex-1 items-center gap-2 px-3">
@@ -26,7 +39,7 @@ export default function GamePage() {
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbPage className="line-clamp-1">
-                    Project Management & Task Tracking
+                    Game {params.gameId}
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
@@ -38,7 +51,12 @@ export default function GamePage() {
           <div className="mx-auto h-[100vh] w-full max-w-3xl rounded-xl bg-muted/50" />
         </div>
       </SidebarInset>
-      <SidebarRight />
+      <SidebarRight>
+        <div className="flex flex-col gap-4">
+          <div>Game Chat</div>
+          <div>Game Info</div>
+        </div>
+      </SidebarRight>
     </SidebarProvider>
   )
 }
