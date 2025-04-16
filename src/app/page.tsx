@@ -37,7 +37,7 @@ export default function Home() {
             <div className="flex-shrink-0">
               {/* Logo is on the left */}
             </div>
-            <div className="flex-shrink-0 overflow-hidden mx-auto">
+            <div className="flex-shrink-0 overflow-hidden ml-16">
               <NavItems items={navItems} />
             </div>
             <div className="flex-shrink-0 flex items-center gap-4">
