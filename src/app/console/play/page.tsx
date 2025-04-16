@@ -27,13 +27,7 @@ console.log('Game data:', games);
 
 export default function Play() {
   const router = useRouter();
-  const [sortedGames, setSortedGames] = useState<Game[]>(() => {
-    return [...games].sort((a, b) => {
-      const ratingA = typeof a.rating === "string" ? parseInt(a.rating) : a.rating;
-      const ratingB = typeof b.rating === "string" ? parseInt(b.rating) : b.rating;
-      return (ratingB || 0) - (ratingA || 0);
-    });
-  });
+
 
   return (
     <div className="flex flex-1">
@@ -61,7 +55,7 @@ export default function Play() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-neutral-200 bg-white dark:divide-neutral-700 dark:bg-neutral-900">
-                      {sortedGames.map((game) => (
+                      {games.map((game) => (
                         <tr 
                           key={game.gameId} 
                           className="hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
