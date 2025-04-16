@@ -80,16 +80,18 @@ export default function Home() {
       </Navbar>
       <div className="mt-12 md:mt-24 text-center">
         <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))] mb-4">
-          <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-black dark:from-gray-400 via-gray-900 dark:via-gray-300 to-gray-700 dark:to-gray-200 [text-shadow:0_0_rgba(0,0,0,0.1)]">
-            <div className="flex items-center gap-4 mx-auto">
-              
-              <span className="text-4xl md:text-6xl lg:text-8xl font-bold">ChessBet</span>
+          <div className="absolute left-0 top-[1px] w-full">
+            <div className="flex flex-col items-center gap-4">
+              <div className="opacity-50 blur-[1px]">
+                <img src="/Logo.png" alt="" className="h-40 w-40 dark:invert" />
+              </div>
+              <span className="text-4xl md:text-6xl lg:text-8xl font-bold text-black/50 dark:text-white/50 blur-[1px]">ChessBet</span>
             </div>
           </div>
-          <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-black dark:from-gray-400 via-gray-900 dark:via-gray-300 to-gray-700 dark:to-gray-200 py-4">
-            <div className="flex items-center gap-4 mx-auto">
-              
-              <span className="text-4xl md:text-6xl lg:text-8xl font-bold">ChessBet</span>
+          <div className="relative">
+            <div className="flex flex-col items-center gap-4">
+              <img src="/Logo.png" alt="ChessBet Logo" className="h-40 w-40 dark:invert" />
+              <span className="text-4xl md:text-6xl lg:text-8xl font-bold text-black dark:text-white">ChessBet</span>
             </div>
           </div>
         </div>
