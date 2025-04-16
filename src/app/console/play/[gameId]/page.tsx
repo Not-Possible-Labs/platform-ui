@@ -17,12 +17,15 @@ import {
 
 
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function GamePage({ params }: { params: { gameId: string } }) {
   const [open, setOpen] = useState(false);
   
-  console.log('GamePage params:', params);
+  // Type-safe handling of params
+  const resolvedParams = React.use(params as any) as { gameId: string };
+  
+  console.log('GamePage params:', resolvedParams);
 
   return (
     <SidebarProvider defaultOpen={open} onOpenChange={setOpen}>
@@ -41,7 +44,7 @@ export default function GamePage({ params }: { params: { gameId: string } }) {
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbPage className="line-clamp-1">
-                    Game {params.gameId}
+                    Game {resolvedParams.gameId}
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
