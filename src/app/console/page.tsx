@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 import { Dashboard } from "@/app/console/(dashboard)/dashboard";
-import Play from "@/app/console/(play)/page";
+import Play from "@/app/console/play/page";
 import { IconChessKnight } from "@tabler/icons-react";
 import {
   IconArrowLeft,

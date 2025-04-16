@@ -1,20 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { IconFlame, IconRun, IconChess, IconChessKnight } from "@tabler/icons-react";
 import { NewsTimeline } from "@/components/NewsTimeline";
 import gamesData from "./data.json";
 import { CreateGameDialog } from "@/components/create-game-dialog";
-
-interface GameData {
-  gameId: string;
-  username: string;
-  rating: string | number;
-  time: string;
-  mode: string;
-  gameType: string;
-}
 
 interface Game {
   gameId: string;
@@ -25,18 +16,17 @@ interface Game {
   gameType: "standard" | "960";
 }
 
-const validateGame = (game: GameData): game is Game => {
-  return (
-    game.mode === "Rated" || game.mode === "Casual"
-  ) && (
-    game.gameType === "standard" || game.gameType === "960"
-  );
-};
+const games: Game[] = gamesData.map(game => ({
+  ...game,
+  gameId: game.gameId,
+  mode: game.mode as "Rated" | "Casual",
+  gameType: game.gameType as "standard" | "960"
+}));
 
-const games: Game[] = (gamesData as GameData[]).filter(validateGame);
 console.log('Game data:', games);
 
 export default function Play() {
+  const router = useRouter();
   const [sortedGames, setSortedGames] = useState<Game[]>(() => {
     return [...games].sort((a, b) => {
       const ratingA = typeof a.rating === "string" ? parseInt(a.rating) : a.rating;
@@ -74,9 +64,9 @@ export default function Play() {
                       {sortedGames.map((game) => (
                         <tr 
                           key={game.gameId} 
-                          className="hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
+                          className="hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
+                          onClick={() => router.push(`/console/play/${game.gameId}`)}
                         >
-                          <Link href={`/console/play/${game.gameId}`} prefetch={false} className="contents">
                           <td className="whitespace-nowrap px-4 py-1 text-xs font-medium text-neutral-900 dark:text-white">
                             {game.username}
                           </td>
@@ -106,20 +96,17 @@ export default function Play() {
                               {game.gameType === "standard" ? "Standard" : "960"}
                             </span>
                           </td>
-                          <td className="whitespace-nowrap px-6 py-3 text-right text-xs text-neutral-500 dark:text-neutral-400">
-                            <span className="text-xs font-medium text-neutral-900 dark:text-white">
-                              View
-                            </span>
-                          </td>
-                          </Link>
+
                           <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                            <Link 
-                              href={`/console/play/${game.gameId}`}
-                              prefetch={false}
+                            <button 
                               className="rounded-md bg-neutral-900 px-3 py-1 text-sm font-medium text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                router.push(`/console/play/${game.gameId}`);
+                              }}
                             >
                               Join
-                            </Link>
+                            </button>
                           </td>
                         </tr>
                       ))}

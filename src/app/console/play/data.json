@@ -56,6 +56,7 @@
     "gameType": "standard"
   },
   {
+    "gameId": "g8",
     "username": "BCLF",
     "rating": 1666,
     "time": "½+8",
@@ -63,6 +64,7 @@
     "gameType": "960"
   },
   {
+    "gameId": "g9",
     "username": "Profspange",
     "rating": 1549,
     "time": "15+5",
@@ -70,6 +72,7 @@
     "gameType": "960"
   },
   {
+    "gameId": "g10",
     "username": "KirbyStarDz",
     "rating": "1500?",
     "time": "10+3",
@@ -77,6 +80,7 @@
     "gameType": "960"
   },
   {
+    "gameId": "g11",
     "username": "sumit04ac",
     "rating": "1500?",
     "time": "2+2",
@@ -84,6 +88,7 @@
     "gameType": "960"
   },
   {
+    "gameId": "g12",
     "username": "Shivjikabhakt",
     "rating": "1500?",
     "time": "1+0",
@@ -91,6 +96,7 @@
     "gameType": "960"
   },
   {
+    "gameId": "g13",
     "username": "Pojukikikinis",
     "rating": 1484,
     "time": "0+2",
