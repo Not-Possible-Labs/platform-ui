@@ -1,3 +1,7 @@
+"use client"
+
+import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -14,6 +18,27 @@ export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const router = useRouter()
+  const [email, setEmail] = useState("")
+  const [loading, setLoading] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    
+    try {
+      // TODO: Add actual login logic here
+      console.log("Logging in with:", email)
+      
+      // For now, just navigate to verify page
+      router.push("/auth/verify")
+    } catch (error) {
+      console.error("Login error:", error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <div className={cn("mx-auto flex w-full flex-col gap-6 max-w-sm", className)} {...props}>
       <Card>
@@ -24,7 +49,7 @@ export function LoginForm({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-3">
                 <Label htmlFor="email">Email</Label>
@@ -33,12 +58,15 @@ export function LoginForm({
                   type="email"
                   placeholder="m@example.com"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={loading}
                 />
               </div>
             
               <div className="flex flex-col gap-3">
-                <Button type="submit" className="w-full">
-                  Login
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {loading ? "Sending code..." : "Login"}
                 </Button>
                
               </div>
