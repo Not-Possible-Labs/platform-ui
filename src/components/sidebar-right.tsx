@@ -21,7 +21,7 @@ const data = {
   user: {
     name: "shadcn",
     email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    avatar: "https://api.dicebear.com/7.x/pixel-art/svg?seed=shadcn",
   },
   calendars: [
     {

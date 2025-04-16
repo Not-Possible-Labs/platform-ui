@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { IconFlame, IconRun, IconChess, IconChessKnight } from "@tabler/icons-react";
 import { NewsTimeline } from "@/components/NewsTimeline";
 import gamesData from "./data.json";
@@ -36,7 +36,6 @@ const validateGame = (game: GameData): game is Game => {
 const games: Game[] = (gamesData as GameData[]).filter(validateGame);
 
 export const Play = () => {
-  const router = useRouter();
   const [sortedGames, setSortedGames] = useState<Game[]>(() => {
     return [...games].sort((a, b) => {
       const ratingA = typeof a.rating === "string" ? parseInt(a.rating) : a.rating;
@@ -74,9 +73,9 @@ export const Play = () => {
                       {sortedGames.map((game) => (
                         <tr 
                           key={game.gameId} 
-                          className="hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
-                          onClick={() => router.push(`/console/${game.gameId}`)}
+                          className="hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
                         >
+                          <Link href={`/console/play/${game.gameId}`} className="contents">
                           <td className="whitespace-nowrap px-4 py-1 text-xs font-medium text-neutral-900 dark:text-white">
                             {game.username}
                           </td>
@@ -106,16 +105,19 @@ export const Play = () => {
                               {game.gameType === "standard" ? "Standard" : "960"}
                             </span>
                           </td>
+                          <td className="whitespace-nowrap px-6 py-3 text-right text-xs text-neutral-500 dark:text-neutral-400">
+                            <span className="text-xs font-medium text-neutral-900 dark:text-white">
+                              View
+                            </span>
+                          </td>
+                          </Link>
                           <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                            <button 
+                            <Link 
+                              href={`/console/play/${game.gameId}`}
                               className="rounded-md bg-neutral-900 px-3 py-1 text-sm font-medium text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                router.push(`/console/${game.gameId}`);
-                              }}
                             >
                               Join
-                            </button>
+                            </Link>
                           </td>
                         </tr>
                       ))}
