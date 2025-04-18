@@ -130,22 +130,22 @@ export default function Home() {
           ))}
 
           {/* Tall card */}
-          <Card className="h-[400px] hover:shadow-lg transition-shadow">
+         {/*  <Card className="h-[400px] hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle>Tall Card</CardTitle>
               <CardDescription>This card is taller than others</CardDescription>
             </CardHeader>
-          </Card>
+          </Card> */}
 
           {/* Two medium cards */}
-          {[1, 2].map((i) => (
+     {/*      {[1, 2].map((i) => (
             <Card key={`medium-${i}`} className="h-[200px] hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle>Medium Card {i}</CardTitle>
                 <CardDescription>Medium height card {i}</CardDescription>
               </CardHeader>
             </Card>
-          ))}
+          ))} */}
 
           {/* Wide card spanning 3 columns */}
           <Card className="lg:col-span-3 h-[200px] hover:shadow-lg transition-shadow">
@@ -156,42 +156,42 @@ export default function Home() {
           </Card>
 
           {/* Two wide cards */}
-          {[1, 2].map((i) => (
+       {/*    {[1, 2].map((i) => (
             <Card key={`wide-${i}`} className="md:col-span-2 h-[280px] hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle>Wide Card {i}</CardTitle>
                 <CardDescription>This card spans two columns</CardDescription>
               </CardHeader>
             </Card>
-          ))}
+          ))} */}
 
           {/* Three small cards */}
-          {[1, 2, 3].map((i) => (
+        {/*   {[1, 2, 3].map((i) => (
             <Card key={`small-${i}`} className="h-[180px] hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle>Small Card {i}</CardTitle>
                 <CardDescription>Compact card design</CardDescription>
               </CardHeader>
             </Card>
-          ))}
+          ))} */}
 
           {/* Extra tall card */}
-          <Card className="md:col-span-2 h-[450px] hover:shadow-lg transition-shadow">
+      {/*     <Card className="md:col-span-2 h-[450px] hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle>Extra Tall Card</CardTitle>
               <CardDescription>This is our tallest card</CardDescription>
             </CardHeader>
-          </Card>
+          </Card> */}
 
           {/* Four medium cards */}
-          {[1, 2, 3, 4].map((i) => (
+        {/*   {[1, 2, 3, 4].map((i) => (
             <Card key={`extra-${i}`} className="h-[220px] hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle>Extra Card {i}</CardTitle>
                 <CardDescription>Additional medium-sized card</CardDescription>
               </CardHeader>
             </Card>
-          ))}
+          ))} */}
 
           {/* Final wide card */}
           <Card className="lg:col-span-3 h-[250px] hover:shadow-lg transition-shadow">
@@ -200,6 +200,25 @@ export default function Home() {
               <CardDescription>Another full-width card to finish the grid</CardDescription>
             </CardHeader>
           </Card>
+        </div>
+
+        <div className="max-w-2xl mx-auto mt-24">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+            Join the waitlist
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 text-center mb-6">
+            Be the first to experience ChessBet, the revolutionary chess betting platform.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-2 justify-center">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 max-w-md rounded-lg border border-gray-300 dark:border-neutral-800 focus:ring-2 focus:ring-blue-500 px-4 py-2 bg-white dark:bg-neutral-900 text-gray-900 dark:text-white"
+            />
+            <button className="bg-black hover:bg-neutral-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+              Join Waitlist
+            </button>
+          </div>
         </div>
       </main>
 
