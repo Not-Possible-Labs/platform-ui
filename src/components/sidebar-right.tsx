@@ -2,7 +2,6 @@ import * as React from "react"
 import { Plus } from "lucide-react"
 
 import { Calendars } from "@/components/calendars"
-import { DatePicker } from "@/components/date-picker"
 import { NavUser } from "@/components/nav-user"
 import {
   Sidebar,
@@ -19,22 +18,14 @@ import {
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "https://api.dicebear.com/7.x/pixel-art/svg?seed=shadcn",
+    name: "ChessGambitMaster",
+    email: "gambit@example.com",
+    avatar: "https://api.dicebear.com/7.x/pixel-art/svg?seed=chessgambit",
   },
   calendars: [
     {
-      name: "My Calendars",
-      items: ["Personal", "Work", "Family"],
-    },
-    {
-      name: "Favorites",
-      items: ["Holidays", "Birthdays"],
-    },
-    {
-      name: "Other",
-      items: ["Travel", "Reminders", "Deadlines"],
+      name: "Tournament Schedules",
+      items: ["World Championship Series"],
     },
   ],
 }
@@ -52,7 +43,7 @@ export function SidebarRight({
         <NavUser user={data.user} />
       </SidebarHeader>
       <SidebarContent>
-        <DatePicker />
+        <div>Upcoming Tournaments Placeholder</div>
         <SidebarSeparator className="mx-0" />
         <Calendars calendars={data.calendars} />
       </SidebarContent>
@@ -61,7 +52,7 @@ export function SidebarRight({
           <SidebarMenuItem>
             <SidebarMenuButton>
               <Plus />
-              <span>New Calendar</span>
+              <span>Create Bet Slip</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
